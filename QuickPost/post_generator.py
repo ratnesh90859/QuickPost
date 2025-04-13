@@ -31,7 +31,6 @@ def get_prompt(length, language, tag):
     If Language is Hinglish then it means it is a mix of Hindi and English. 
     The script for the generated post should always be English.
     '''
-    # prompt = prompt.format(post_topic=tag, post_length=length_str, post_language=language)
 
     examples = few_shot.get_filtered_posts(length, language, tag)
 
@@ -42,7 +41,7 @@ def get_prompt(length, language, tag):
         post_text = post['text']
         prompt += f'\n\n Example {i+1}: \n\n {post_text}'
 
-        if i == 1: # Use max two samples
+        if i == 1:  
             break
 
     return prompt
